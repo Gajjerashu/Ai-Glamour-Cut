@@ -1,0 +1,167 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(10px, 2vw, 15px) 5%; /* રિસ્પોન્સિવ પેડિંગ */
+    background-color: var(--card-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box; /* ઓવરલેપિંગ રોકવા માટે */
+}
+
+/* લોગો માટે ફિક્સ વિડ્થ જો જરૂર હોય તો */
+.navbar-brand img {
+    height: clamp(40px, 5vw, 60px);
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: clamp(15px, 2vw, 30px);
+    margin: 0;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+    white-space: nowrap; /* લખાણ તૂટે નહીં તે માટે */
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff0000;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active-link::after {
+    width: 100%;
+}
+
+.nav-links a.active-link {
+    color: #ff0000 !important;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.5vw, 20px);
+}
+
+/* Menu Toggle Styling */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
+    z-index: 1001; /* મેનૂની ઉપર દેખાય તે માટે */
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 50%;
+    width: 38px; 
+    height: 38px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    color: var(--text-main);
+    transition: 0.3s;
+}
+
+.admin-login-btn {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.exit-btn {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-muted);
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 1024px) {
+    .menu-toggle { 
+        display: block; 
+    }
+    
+    .nav-links {
+        position: fixed; /* Absolute ની જગ્યાએ Fixed જેથી સ્ક્રોલિંગમાં ઇશ્યૂ ન થાય */
+        top: 0;
+        right: 0;
+        height: 100vh;
+        background: var(--card-bg);
+        flex-direction: column;
+        justify-content: center; /* સેન્ટરમાં લિંક્સ રાખવા */
+        width: min(280px, 70%); /* ફિક્સ મેક્સ વિડ્થ */
+        padding: 40px;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+        z-index: 1000;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 15px 0;
+    }
+
+    .nav-actions {
+        margin-right: 15px; /* હેમ્બર્ગ મેનૂ અને બટન વચ્ચે જગ્યા */
+    }
+
+    .admin-login-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 4%;
+    }
+    .exit-btn span { display: none; } /* મોબાઈલમાં માત્ર આઈકોન દેખાશે */
+    .admin-login-btn { display: none; } /* બહુ નાની સ્ક્રીન પર લોગીન છુપાવી શકાય અથવા આઈકોન મૂકી શકાય */
+}

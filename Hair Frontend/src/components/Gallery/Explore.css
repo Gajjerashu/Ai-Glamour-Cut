@@ -1,0 +1,198 @@
+/* --- Explore Premium Section --- */
+.explore-premium-wrapper {
+    padding: clamp(80px, 15vw, 140px) 6% 80px; /* મોબાઈલમાં ટોપ પેડિંગ ઓછું કર્યું */
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+    width: 100%;
+}
+
+/* Background UI Decoration - Overlap Prevention */
+.luxury-blob {
+    position: absolute;
+    width: clamp(300px, 50vw, 600px); /* મોબાઈલમાં બ્લોબ નાનો થશે */
+    height: clamp(300px, 50vw, 600px);
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.12) 0%, transparent 70%);
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+}
+.blob-1 { top: -100px; right: -50px; }
+.blob-2 { bottom: -100px; left: -50px; }
+
+/* Header Elements */
+.explore-luxury-header {
+    text-align: center;
+    margin-bottom: clamp(40px, 8vw, 80px);
+    position: relative;
+    z-index: 2;
+}
+
+.gold-tag {
+    color: #ff0000;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: clamp(3px, 1vw, 7px); /* મોબાઈલમાં સ્પેસિંગ એડજસ્ટ થશે */
+    display: block;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.display-title {
+    font-size: clamp(2.2rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+.stroke-text {
+    color: transparent;
+    -webkit-text-stroke: 1px #ff0000;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+}
+
+.description-text {
+    color: var(--text-muted);
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    max-width: 600px;
+    margin: 20px auto;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Masonry Layout Fixes */
+.luxury-masonry-grid {
+    columns: 4 300px; /* ઓટોમેટિક કોલમ એડજસ્ટમેન્ટ */
+    column-gap: 25px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+/* Card & Hover Animation */
+.luxury-item-card {
+    break-inside: avoid;
+    margin-bottom: 25px;
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateZ(0); /* Rendering smooth રાખવા માટે */
+}
+
+.luxury-item-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease;
+    filter: brightness(0.9);
+    object-fit: cover;
+}
+
+/* Luxury Overlay Styling */
+.luxury-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(20px, 4vw, 30px);
+    transition: all 0.5s ease-in-out;
+}
+
+.overlay-info {
+    transform: translateY(30px);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-cat {
+    color: #ff0000;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.card-name {
+    color: #ffffff;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    margin: 5px 0;
+    font-weight: 700;
+}
+
+.mini-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    font-weight: 300;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* લાંબુ લખાણ ૨ લાઈનમાં સમેટાઈ જશે */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.explore-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.explore-indicator .line {
+    width: 25px;
+    height: 2px;
+    background: #ff0000;
+    transition: width 0.4s ease;
+}
+
+/* Interactive Hover States */
+.luxury-item-card:hover {
+    transform: translateY(-10px); /* scale ને બદલે translateY વધુ ક્લીન લાગે છે */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.luxury-item-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.7);
+}
+
+.luxury-item-card:hover .luxury-card-overlay {
+    opacity: 1;
+}
+
+.luxury-item-card:hover .overlay-info {
+    transform: translateY(0);
+}
+
+/* Responsive Grid & Layout Adjustments */
+@media (max-width: 1200px) {
+    .luxury-masonry-grid { columns: 3 280px; }
+}
+
+@media (max-width: 992px) {
+    .luxury-masonry-grid { columns: 2 250px; column-gap: 20px; }
+    .display-title { font-size: 3.5rem; }
+}
+
+@media (max-width: 768px) {
+    .explore-premium-wrapper { padding-top: 100px; }
+    .display-title { font-size: 2.8rem; }
+    .luxury-card-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%); }
+    .overlay-info { transform: translateY(0); } /* મોબાઈલમાં ટેક્સ્ટ હંમેશા દેખાશે */
+}
+
+@media (max-width: 480px) {
+    .luxury-masonry-grid { columns: 1; }
+    .display-title { font-size: 2.2rem; }
+    .luxury-item-card { border-radius: 20px; margin-bottom: 20px; }
+    .description-text { font-size: 0.9rem; }
+}

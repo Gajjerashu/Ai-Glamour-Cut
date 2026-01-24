@@ -1,0 +1,146 @@
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0; /* સેક્શનને ઉપર-નીચેથી જગ્યા આપવા માટે */
+}
+
+.hero-main-title {
+  /* clamp(min, preferred, max) - આનાથી ટેક્સ્ટ મોબાઈલમાં નાની અને ડેસ્કટોપમાં મોટી થશે */
+  font-size: clamp(2.5rem, 8vw, 4.5rem); 
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text-main); 
+  transition: color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #ff0000;
+}
+
+.hero-text {
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+  font-size: clamp(1rem, 2vw, 1.2rem); /* રિસ્પોન્સિવ ડિસ્ક્રિપ્શન */
+  margin-bottom: 30px;
+  max-width: 600px; /* ટેક્સ્ટ બહુ લાંબી ન ફેલાય એ માટે */
+}
+
+/* Button Container for alignment */
+.hero-btns {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* મોબાઈલમાં બટન એકબીજાની નીચે આપોઆપ આવી જશે */
+}
+
+.ai-glow-btn, .book-btn {
+  padding: clamp(12px, 2vw, 15px) clamp(25px, 4vw, 35px);
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  white-space: nowrap; /* બટનનું લખાણ તૂટે નહીં */
+}
+
+.ai-glow-btn {
+  background: linear-gradient(45deg, #ff0000, #b30000);
+  color: white !important;
+  border: none;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.ai-glow-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.8);
+}
+
+.book-btn {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--text-muted);
+}
+
+.book-btn:hover {
+  background: var(--text-main);
+  color: var(--bg-color);
+}
+
+/* AI Visual Box - Overlapping અટકાવવા માટે */
+.ai-visual-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid var(--text-muted);
+  background: rgba(128, 128, 128, 0.05);
+  margin-top: 40px; /* મોબાઈલ વ્યુમાં ઉપરથી ગેપ રાખવા */
+  width: 100%;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-ai-img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border-radius: 20px;
+  filter: grayscale(10%); 
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background: #ff0000;
+  box-shadow: 0 0 15px #ff0000;
+  z-index: 10;
+  animation: scanAnim 3s infinite ease-in-out;
+}
+
+@keyframes scanAnim {
+  0% { top: 10%; }
+  50% { top: 90%; }
+  100% { top: 10%; }
+}
+
+.ai-status-tag {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7); /* પાછળનું લખાણ ન દેખાય એટલે થોડું ડાર્ક */
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  padding: 5px 12px;
+  font-size: 0.7rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Extra responsiveness for small devices */
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center; /* મોબાઈલમાં લખાણ સેન્ટર કરવા માટે */
+    padding: 40px 15px;
+  }
+  
+  .hero-btns {
+    justify-content: center;
+  }
+
+  .hero-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ai-visual-box {
+    margin-top: 50px;
+    max-width: 320px; /* મોબાઈલમાં ઈમેજ કન્ટેનર નાનું કરવા */
+  }
+}

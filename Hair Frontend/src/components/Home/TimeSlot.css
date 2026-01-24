@@ -1,0 +1,147 @@
+/* Container & Section */
+.timeslot-section {
+    padding: clamp(40px, 8vw, 80px) 0;
+    background-color: var(--bg-color);
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.timeslot-container {
+    display: flex;
+    flex-wrap: wrap; /* કન્ટેન્ટ ઓવરલેપ થવાને બદલે નીચે આવી જશે */
+    max-width: 1000px;
+    width: 90%;
+    gap: clamp(30px, 5vw, 60px); /* રિસ્પોન્સિવ ગેપ */
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Left Side: Image Logic --- */
+.timeslot-image-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 280px; /* નાના મોબાઈલ માટે સેફ સાઈઝ */
+    max-width: 450px;
+    margin: 20px; /* આઉટલાઇન માટે જગ્યા */
+}
+
+.business-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 2;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.decorative-outline {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid #ff0000;
+    z-index: 1;
+}
+
+/* --- Right Side: Content Logic --- */
+.timeslot-content {
+    flex: 1;
+    min-width: 300px;
+    width: 100%;
+}
+
+.timeslot-title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem); /* રિસ્પોન્સિવ હેડિંગ */
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.timeslot-title span {
+    color: #ff0000;
+}
+
+/* Hours List Layout */
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.hour-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: clamp(0.9rem, 2vw, 1.1rem); /* રિસ્પોન્સિવ ટેક્સ્ટ */
+    font-weight: 600;
+    color: var(--text-main);
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(128, 128, 128, 0.3);
+}
+
+.day-name {
+    flex-shrink: 0;
+    width: 100px;
+    color: var(--text-main);
+}
+
+.time-value {
+    color: #ff0000;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap; /* ટાઈમ એક જ લાઈનમાં રહેશે */
+}
+
+/* --- Dark Mode --- */
+[data-theme='dark'] .hour-row {
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .timeslot-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .timeslot-image-wrapper {
+        max-width: 350px;
+        margin-bottom: 40px;
+    }
+
+    .hour-row {
+        justify-content: space-between;
+    }
+
+    .day-name {
+        text-align: left;
+    }
+
+    .decorative-outline {
+        /* મોબાઈલમાં પણ દેખાશે પણ થોડી નાની */
+        top: -10px;
+        left: -10px;
+        right: 10px;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .day-name {
+        width: 80px;
+    }
+    
+    .timeslot-title {
+        font-size: 1.6rem;
+    }
+}

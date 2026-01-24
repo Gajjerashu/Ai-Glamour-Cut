@@ -1,0 +1,68 @@
+.stats-section {
+    border: none !important; 
+    padding: clamp(40px, 8vw, 80px) 0; /* સ્ક્રીન મુજબ પેડિંગ એડજસ્ટ થશે */
+    background-color: transparent;
+    width: 100%;
+    overflow: hidden; /* બહાર નીકળતું રોકવા માટે */
+}
+
+/* Light mode background */
+[data-theme='light'] .stats-section {
+    background-color: #fcfcfc;
+}
+
+/* Container for stat cards to manage layout */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* મોબાઈલમાં કાર્ડ્સ આપોઆપ નીચે આવી જશે */
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.stat-card {
+    transition: transform 0.3s ease;
+    text-align: center;
+    flex: 1;
+    min-width: 200px; /* કાર્ડ બહુ નાનું ન થાય એ માટે લિમિટ */
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    /* આનાથી નંબર મોબાઈલમાં નાનો અને ડેસ્કટોપમાં મોટો (3rem) દેખાશે */
+    font-size: clamp(2rem, 5vw, 3rem); 
+    font-weight: 800;
+    color: #ff0000;
+    margin-bottom: 0;
+    display: block;
+    line-height: 1.2;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    font-size: clamp(0.85rem, 2vw, 1rem); /* લેબલ સાઈઝ પણ રિસ્પોન્સિવ */
+    text-transform: uppercase;
+}
+
+/* Special adjustments for very small screens (Mobile) */
+@media (max-width: 576px) {
+    .stats-section {
+        padding: 40px 10px;
+    }
+    
+    .stat-card {
+        min-width: 140px; /* નાના મોબાઈલમાં બે કાર્ડ બાજુ-બાજુમાં આવી શકે */
+        margin-bottom: 20px;
+    }
+
+    .stat-number {
+        font-size: 2.2rem;
+    }
+}

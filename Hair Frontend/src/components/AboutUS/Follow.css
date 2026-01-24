@@ -1,0 +1,168 @@
+/* Glamour Follow Section v3 */
+.glamour-follow-v3 {
+    padding: clamp(50px, 8vw, 80px) 0;
+    background-color: var(--bg-color);
+    overflow: hidden; /* આડી સ્ક્રોલ રોકવા માટે અત્યંત જરૂરી */
+    width: 100%;
+}
+
+.follow-v3-header {
+    text-align: center;
+    margin-bottom: clamp(30px, 5vw, 50px);
+    padding: 0 20px;
+}
+
+.follow-v3-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 900;
+    letter-spacing: clamp(2px, 1vw, 4px);
+    color: var(--text-main);
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.v3-handle {
+    color: #ff0000;
+    display: block;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    margin-top: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* Infinite Slider Container */
+.v3-insta-slider {
+    width: 100%;
+    display: flex;
+    position: relative;
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+/* --- એનિમેશન ટ્રેક સેટિંગ્સ --- */
+.v3-slider-track {
+    display: flex;
+    /* ડેસ્કટોપ માટે ડિફોલ્ટ વિડ્થ */
+    width: calc(300px * 24); 
+    animation: scrollContinuous 40s linear infinite;
+    will-change: transform; /* એનિમેશન સ્મૂધ કરવા માટે */
+}
+
+/* હોવર કરવા પર સ્લાઈડર અટકી જશે */
+.v3-slider-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollContinuous {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-300px * 12)); }
+}
+
+.v3-insta-card {
+    width: 300px; /* ડિફોલ્ટ કાર્ડ વિડ્થ */
+    height: 300px;
+    flex-shrink: 0;
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.v3-insta-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Premium Hover Overlay */
+.v3-insta-overlay {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    border-radius: 12px;
+    transition: 0.4s ease;
+    backdrop-filter: blur(3px);
+}
+
+.v3-insta-card:hover .v3-insta-overlay {
+    opacity: 1;
+}
+
+.v3-insta-card:hover .v3-insta-img {
+    transform: scale(1.1);
+}
+
+.v3-overlay-content {
+    color: white;
+    text-align: center;
+    transform: translateY(20px);
+    transition: 0.4s ease;
+    padding: 15px;
+}
+
+.v3-insta-card:hover .v3-overlay-content {
+    transform: translateY(0);
+}
+
+.v3-overlay-content i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+    color: #ff0000;
+}
+
+.v3-overlay-content span {
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* --- Responsive Adjustments --- */
+
+/* Tablets (iPad, etc.) */
+@media (max-width: 992px) {
+    .v3-insta-card { width: 250px; height: 250px; }
+    .v3-slider-track { width: calc(250px * 24); }
+    @keyframes scrollContinuous {
+        100% { transform: translateX(calc(-250px * 12)); }
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .v3-insta-card { 
+        width: 180px; 
+        height: 180px; 
+        padding: 5px; /* મોબાઈલમાં થોડી ઓછી જગ્યા */
+    }
+    .v3-slider-track { 
+        width: calc(180px * 24); 
+        animation-duration: 30s; /* નાની સ્ક્રીન પર થોડી ઝડપી અસર */
+    }
+    @keyframes scrollContinuous {
+        100% { transform: translateX(calc(-180px * 12)); }
+    }
+    .v3-insta-overlay {
+        top: 5px; left: 5px; right: 5px; bottom: 5px;
+    }
+    /* મોબાઈલમાં ઓવરલે હંમેશા થોડો વિઝિબલ રાખવો હોય તો opacity 0.4 કરી શકાય */
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .v3-insta-card { width: 150px; height: 150px; }
+    .v3-slider-track { width: calc(150px * 24); }
+    @keyframes scrollContinuous {
+        100% { transform: translateX(calc(-150px * 12)); }
+    }
+}

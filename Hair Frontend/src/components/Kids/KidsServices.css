@@ -1,0 +1,173 @@
+/* Kids Services Wrapper */
+.kids-services-wrapper {
+    padding: clamp(60px, 10vw, 80px) 5%;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ks-header {
+    text-align: center;
+    margin-bottom: clamp(30px, 6vw, 50px);
+    padding: 0 15px;
+}
+
+.ks-subtitle {
+    color: #ff0000;
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    display: block;
+}
+
+.ks-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 900;
+    color: var(--text-main);
+    margin-top: 10px;
+    line-height: 1.2;
+}
+
+.red-highlight { color: #ff0000; }
+
+.ks-list-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Service Row Item */
+.ks-row-item {
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    padding: clamp(20px, 4vw, 30px);
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    gap: 15px;
+}
+
+.ks-row-item:hover {
+    transform: translateY(-5px); /* મોબાઈલ ફ્રેન્ડલી હોવર */
+    border-color: #ff0000;
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.1);
+}
+
+.ks-icon-box {
+    width: clamp(60px, 8vw, 75px);
+    height: clamp(60px, 8vw, 75px);
+    background: rgba(255, 0, 0, 0.1);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    flex-shrink: 0; /* આઈકોન દબાઈ ન જાય તે માટે */
+    margin-right: 10px;
+}
+
+.ks-info-box { 
+    flex: 1; 
+    min-width: 0; /* ટેક્સ્ટ ઓવરફ્લો રોકવા માટે */
+}
+
+.ks-info-box h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--text-main);
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.ks-info-box p {
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.ks-price-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    margin-left: auto; /* પ્રાઈઝ ટેગ જમણી બાજુ પુશ કરવા */
+}
+
+.ks-badge {
+    color: #ff0000;
+    font-weight: 900;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    background: rgba(255, 0, 0, 0.05);
+    padding: 5px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.ks-book-mini {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.ks-book-mini:hover {
+    background: #000;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* --- Responsive Layout Fixes --- */
+
+@media (max-width: 850px) {
+    .kids-services-wrapper { padding-left: 15px; padding-right: 15px; }
+}
+
+@media (max-width: 768px) {
+    .ks-row-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 35px 20px;
+        gap: 20px;
+    }
+    
+    .ks-icon-box { 
+        margin: 0 auto; 
+    }
+    
+    .ks-info-box {
+        width: 100%;
+    }
+
+    .ks-price-tag { 
+        margin: 10px 0 0 0;
+        align-items: center; 
+        width: 100%;
+    }
+    
+    .ks-book-mini {
+        width: 100%; /* મોબાઈલમાં બટન આખું થઈ જશે */
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ks-title { font-size: 1.8rem; }
+    .ks-row-item { border-radius: 20px; }
+}

@@ -1,0 +1,156 @@
+/* GatewayForm.css */
+
+.gateway-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* vh/vw કરતા 100% વધુ સ્ટેબલ છે */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color, #0d0d0d);
+    z-index: 10000;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* જો ફોન નાનો હોય તો સ્ક્રોલ થઈ શકે */
+}
+
+.prelook-card {
+    background: var(--card-bg, #1a1a1a);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--outline-color, #ff0000);
+    padding: clamp(25px, 5vw, 40px); /* રિસ્પોન્સિવ પેડિંગ */
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    margin: auto; /* સેન્ટર જાળવી રાખવા */
+    position: relative;
+}
+
+.gateway-logo {
+    height: clamp(50px, 8vw, 70px);
+    width: auto;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
+.prelook-header h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    color: var(--text-main, #ffffff);
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.text-danger-custom {
+    color: #ff0000;
+}
+
+.prelook-header p {
+    color: var(--outline-color, #ff0000);
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.gateway-form-content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(15px, 3vw, 20px);
+}
+
+/* Input Group with Accessibility Support */
+.v4-input-group {
+    text-align: left;
+    border-bottom: 2px solid var(--text-muted, #555);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.v4-input-group:focus-within {
+    border-bottom-color: #ff0000;
+}
+
+.v4-input-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-main, #ffffff);
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+
+.v4-input-group input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: var(--text-main, #ffffff);
+    box-sizing: border-box; /* Overlapping અટકાવવા */
+}
+
+/* Chrome/Safari Autofill Background Fix */
+.v4-input-group input:-webkit-autofill {
+    -webkit-text-fill-color: var(--text-main, #ffffff) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.v4-submit-btn {
+    width: 100%;
+    background-color: #ff0000;
+    color: #fff;
+    padding: clamp(12px, 3vw, 15px);
+    border: none;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+}
+
+.v4-submit-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.4);
+}
+
+.v4-submit-btn:active {
+    transform: translateY(-1px);
+}
+
+/* --- Mobile Responsive Fixes --- */
+
+@media (max-height: 600px) {
+    .prelook-card {
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .prelook-header p {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gateway-wrapper {
+        padding: 15px;
+    }
+    .prelook-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+    .v4-submit-btn {
+        letter-spacing: 1px;
+    }
+}

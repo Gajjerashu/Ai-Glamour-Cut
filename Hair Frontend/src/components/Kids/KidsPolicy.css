@@ -1,0 +1,69 @@
+/* KidsPolicy.css */
+.k-policy-wrapper {
+    padding: clamp(40px, 8vw, 80px) 20px;
+    background-color: var(--bg-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.k-policy-card { 
+    max-width: 800px; 
+    width: 100%;
+    margin: 0 auto; 
+    padding: clamp(25px, 5vw, 40px); 
+    background: #000; 
+    color: #fff; 
+    border-radius: clamp(15px, 3vw, 20px); 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.k-policy-card h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 800;
+    color: #ff0000;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.k-policy-card ul { 
+    list-style: none; 
+    padding: 20px 0 0 0; 
+    margin: 0;
+}
+
+.k-policy-card li {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start; /* લાંબા લખાણમાં આઈકોન ઉપર રહે તે માટે */
+    text-align: left;
+}
+
+.k-policy-card li::before { 
+    content: "✔"; 
+    color: #ff0000; 
+    margin-right: 15px; 
+    font-weight: 900;
+    flex-shrink: 0; /* આઈકોન દબાઈ ન જાય તે માટે */
+}
+
+/* Responsive Fixes */
+@media (max-width: 600px) {
+    .k-policy-card {
+        padding: 25px 20px;
+    }
+    
+    .k-policy-card li {
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+    }
+
+    .k-policy-card li::before {
+        margin-right: 10px;
+    }
+}

@@ -1,0 +1,180 @@
+/* Futuristic Neo-Style HoSer.css */
+
+.neo-hoser-section {
+    background-color: var(--bg-color);
+    padding: clamp(60px, 10vw, 100px) 5%;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease;
+    width: 100%;
+    overflow: hidden; /* કોઈ પણ કન્ટેન્ટ બહાર ન નીકળે તે માટે */
+}
+
+.neo-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: clamp(30px, 5vw, 50px);
+    align-items: flex-start;
+}
+
+/* 1. Side Header Strategy - Non-Overlapping Fix */
+.neo-side-header {
+    display: flex;
+    gap: clamp(15px, 3vw, 30px);
+    position: sticky;
+    top: 100px;
+    flex-shrink: 0; /* આ બાજુના હેડરને દબાવવા ન દેશે */
+}
+
+.neo-vertical-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-size: clamp(3rem, 6vw, 5rem); /* રિસ્પોન્સિવ સાઈઝ */
+    font-weight: 900;
+    opacity: 0.1;
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1;
+}
+
+.neo-main-info h3 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.red-glow {
+    color: #ff0000;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+/* 2. Grid Wrapper - Flexible */
+.neo-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* 3. The Futuristic Card - Responsive Content */
+.neo-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    border-radius: 40px;
+    padding: clamp(20px, 4vw, 35px);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: clamp(15px, 3vw, 25px);
+}
+
+.neo-card:hover {
+    background: #ff0000;
+    transform: scale(1.03) translateX(5px);
+    box-shadow: 0 25px 50px rgba(255, 0, 0, 0.2);
+}
+
+/* Icon Box Fix */
+.neo-icon-box {
+    font-size: clamp(2rem, 4vw, 3rem);
+    background: rgba(128, 128, 128, 0.1);
+    width: clamp(70px, 10vw, 90px);
+    height: clamp(70px, 10vw, 90px);
+    flex-shrink: 0; /* આઇકન દબાઈ ન જાય એ માટે */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    transition: 0.5s;
+}
+
+.neo-card:hover .neo-icon-box {
+    background: #ffffff;
+    transform: rotate(15deg);
+}
+
+/* Content Fix */
+.neo-content {
+    flex-grow: 1;
+    padding-right: 40px; /* પ્લસ બટન માટે જગ્યા */
+}
+
+.neo-content h4 {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    margin: 5px 0;
+    color: var(--text-main);
+}
+
+.neo-card:hover h4, 
+.neo-card:hover p,
+.neo-card:hover .neo-price-tag {
+    color: #ffffff;
+}
+
+.neo-price-tag {
+    font-weight: 900;
+    color: #ff0000;
+    font-size: 1rem;
+}
+
+/* Floating Action Plus */
+.neo-action-circle {
+    position: absolute;
+    right: clamp(15px, 3vw, 30px);
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: 0.4s;
+}
+
+.neo-card:hover .neo-action-circle {
+    background: #ffffff;
+    border-color: #ffffff;
+    transform: rotate(90deg);
+}
+
+/* 4. Responsive Strategy */
+@media (max-width: 1200px) {
+    .neo-grid-wrapper { grid-template-columns: 1fr; } /* ટેબ્લેટ પર સિંગલ કોલમ */
+}
+
+@media (max-width: 1024px) {
+    .neo-container { flex-direction: column; align-items: center; }
+    .neo-side-header { 
+        position: relative; 
+        top: 0; 
+        text-align: center;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    .neo-vertical-text { display: none; } /* મોબાઈલમાં વર્ટિકલ ટેક્સ્ટ કાઢી નાખવું સારું લાગે */
+}
+
+@media (max-width: 576px) {
+    .neo-card { 
+        padding: 20px; 
+        border-radius: 30px; 
+    }
+    .neo-action-circle {
+        display: none; /* નાના મોબાઈલમાં જગ્યા બચાવવા માટે */
+    }
+    .neo-content {
+        padding-right: 0;
+    }
+}

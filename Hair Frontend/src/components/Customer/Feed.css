@@ -1,0 +1,157 @@
+/* Feedback Section Wrapper */
+.feed-section {
+    background-color: var(--bg-color);
+    padding: clamp(40px, 8vw, 80px) 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+    width: 100%;
+}
+
+.feed-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    width: 100%;
+    max-width: 500px;
+    padding: clamp(25px, 5vw, 40px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* એનિમેશન બહાર ન જાય તે માટે */
+}
+
+.feed-header h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.red-text { color: #ff0000; }
+
+.feed-header p {
+    color: var(--text-muted);
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Form Grouping */
+.feed-group {
+    text-align: left;
+    margin-bottom: clamp(15px, 3vw, 20px);
+}
+
+.feed-group label {
+    display: block;
+    color: var(--text-main);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.feed-group input, 
+.feed-group select, 
+.feed-group textarea {
+    width: 100%;
+    background: rgba(128, 128, 128, 0.1);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    border-radius: 12px;
+    padding: clamp(10px, 2vw, 14px);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* પેડિંગના લીધે વિડ્થ વધે નહીં */
+}
+
+/* Select Arrow Styling Fix */
+.feed-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='red' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 40px;
+}
+
+.feed-group input:focus, 
+.feed-group select:focus, 
+.feed-group textarea:focus {
+    border-color: #ff0000;
+    background: rgba(255, 0, 0, 0.02);
+    box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.05);
+}
+
+.feed-submit-btn {
+    width: 100%;
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: clamp(12px, 3vw, 16px);
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 10px;
+}
+
+.feed-submit-btn:hover {
+    background: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feed-submit-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Success Message Fix */
+.feed-success-msg {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.check-ring {
+    width: 70px; 
+    height: 70px;
+    background: #28a745;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2.5rem;
+    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Responsive Fix for small devices */
+@media (max-width: 480px) {
+    .feed-card {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+    
+    .feed-header h2 {
+        font-size: 1.6rem;
+    }
+}

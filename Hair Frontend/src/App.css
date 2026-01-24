@@ -1,0 +1,135 @@
+/* App.css */
+:root[data-theme='light'] {
+    --bg-color: #ffffff;
+    --text-main: #1a1a1a;
+    --text-muted: #555555;
+    --outline-color: #ff0000;
+    --card-bg: rgba(255, 255, 255, 0.8); /* Transparent Light */
+    --nav-bg: #ffffff;
+    --input-placeholder: #888;
+}
+
+:root[data-theme='dark'] {
+    --bg-color: #0d0d0d;
+    --text-main: #ffffff;
+    --text-muted: #b0b0b0;
+    --outline-color: #ff0000;
+    --card-bg: rgba(21, 21, 21, 0.8); /* Transparent Dark */
+    --nav-bg: #111111;
+    --input-placeholder: #555;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Form Specific Styles --- */
+.glamour-prelook-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.prelook-card {
+    background: var(--card-bg); /* Transparent Background */
+    backdrop-filter: blur(10px); /* Glassmorphism Effect */
+    max-width: 700px; /* Compact Size */
+    width: 100%;
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.prelook-header h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.prelook-header p {
+    color: #ff0000;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.v4-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+    margin-top: 40px;
+}
+
+.v4-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-bottom: 1.5px solid var(--text-muted);
+}
+
+.v4-input-group:focus-within {
+    border-bottom-color: #ff0000;
+}
+
+.v4-input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+/* Icon Color Red */
+.v4-input-group label i {
+    color: #ff0000;
+    margin-right: 8px;
+}
+
+.v4-input-group input, 
+.v4-input-group select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-main);
+    padding: 8px 0;
+    font-size: 1rem;
+}
+
+/* Button */
+.v4-submit-btn {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 15px 60px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 800;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.v4-submit-btn:hover {
+    background-color: var(--text-main);
+    transform: translateY(-3px);
+}
+
+
+.about-page-wrapper {
+    overflow-x: hidden;
+}
+
+/* Light/Dark Mode compatibility mate padding */
+.about-page-wrapper > div {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}

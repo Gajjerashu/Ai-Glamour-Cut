@@ -1,0 +1,114 @@
+/* Unique Wrapper to avoid conflict */
+.glamour-story-wrapper {
+    padding: clamp(60px, 10vw, 100px) 0;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.4s ease;
+    width: 100%;
+    overflow: hidden;
+}
+
+.story-premium-container {
+    max-width: 950px;
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Stylish Red Heading with Underline */
+.story-title-styled {
+    font-size: clamp(1.6rem, 5vw, 2.2rem); /* રિસ્પોન્સિવ સાઈઝ */
+    font-weight: 900;
+    color: #ff0000;
+    letter-spacing: clamp(1px, 1vw, 3px);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+}
+
+.title-underline-red {
+    width: clamp(50px, 10vw, 80px);
+    height: 4px;
+    background-color: #ff0000;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+}
+
+/* Premium Text Styling */
+.story-para-main {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: clamp(1.6, 3vw, 1.9); /* મોબાઈલમાં લાઈન હાઈટ થોડી ઓછી થશે */
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* Read More Button Styling */
+.story-red-action-btn {
+    background: transparent;
+    border: none;
+    color: #ff0000;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 800;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.story-red-action-btn:hover {
+    letter-spacing: 2px;
+    transform: translateY(-2px); /* Scale ને બદલે Translate વધુ સ્ટેબલ લાગે છે */
+}
+
+/* Expandable Logic - Content Overflow Prevention */
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0, 1, 0, 1);
+    opacity: 0; /* સ્મૂધ એનિમેશન માટે */
+}
+
+.expandable-content.show-content {
+    max-height: 2000px; /* મોબાઈલમાં લખાણ લાંબુ થાય તો પણ વાંધો ન આવે */
+    opacity: 1;
+    transition: max-height 1s ease-in-out, opacity 0.5s ease;
+    margin-top: 15px;
+}
+
+/* Dark/Light Mode Adaptability */
+[data-theme='dark'] .story-para-main {
+    color: #cccccc;
+}
+
+[data-theme='light'] .story-para-main {
+    color: #444444;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .glamour-story-wrapper { 
+        padding: 50px 15px; 
+    }
+    
+    .story-premium-container {
+        width: 100%;
+    }
+
+    .story-para-main {
+        text-align: justify; /* મોબાઈલમાં રીડેબિલિટી વધારવા માટે */
+        hyphens: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-title-styled {
+        letter-spacing: 1px;
+    }
+}

@@ -1,0 +1,190 @@
+/* Kids Hero Section */
+.kids-hero-section {
+    padding: clamp(80px, 15vw, 120px) 5%;
+    background-color: var(--bg-color);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.kids-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(30px, 5vw, 60px);
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+/* Badge Pill Styling */
+.k-badge-pill {
+    background: rgba(255, 0, 0, 0.08);
+    color: #ff0000;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.k-badge-pill .dot {
+    width: 8px;
+    height: 8px;
+    background: #ff0000;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+/* Typography Adjustments */
+.k-display-title {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-main);
+    margin-bottom: 25px;
+    letter-spacing: -1px; /* મોબાઈલમાં વધુ પડતું નેગેટિવ સ્પેસિંગ નડશે નહીં */
+}
+
+.highlight-red {
+    color: #ff0000;
+    position: relative;
+}
+
+.k-subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-muted);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+/* CTA Button */
+.k-main-cta {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: clamp(15px, 3vw, 20px) clamp(30px, 5vw, 40px);
+    font-size: 1rem;
+    font-weight: 900;
+    border-radius: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.k-main-cta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(255, 0, 0, 0.4);
+    background: #000;
+}
+
+/* Feature Stack (Right Side) */
+.k-hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.feature-blob {
+    position: absolute;
+    width: clamp(300px, 40vw, 500px);
+    height: clamp(300px, 40vw, 500px);
+    background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 1;
+}
+
+.k-feature-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+}
+
+.stack-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    padding: 18px 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.4s ease;
+}
+
+.stack-card:hover {
+    border-color: #ff0000;
+    transform: translateX(-10px);
+    background: var(--bg-color);
+}
+
+.stack-card .icon { font-size: clamp(1.5rem, 3vw, 2rem); }
+.stack-card .info strong { display: block; color: var(--text-main); font-size: 1.1rem; }
+.stack-card .info small { color: var(--text-muted); }
+
+/* Asymmetric offsets - Disabled on smaller screens for no-overlap */
+.card-2 { transform: translateX(30px); }
+.card-3 { transform: translateX(10px); }
+
+/* --- Responsive Layout Adjustments --- */
+
+@media (max-width: 1024px) {
+    .kids-hero-grid { gap: 30px; }
+    .card-2, .card-3 { transform: translateX(0); } /* ટેબ્લેટ પર સીધા થઈ જશે */
+}
+
+@media (max-width: 992px) {
+    .kids-hero-grid { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+    }
+    
+    .k-hero-text { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .k-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .k-hero-visual { 
+        margin-top: 40px; 
+    }
+
+    .k-feature-stack {
+        max-width: 500px;
+    }
+
+    .stack-card:hover {
+        transform: translateY(-5px); /* મોબાઈલમાં સાઈડને બદલે ઉપર હોવર થશે */
+    }
+}
+
+@media (max-width: 480px) {
+    .kids-hero-section { padding: 60px 20px; }
+    .k-display-title { font-size: 2.2rem; }
+    .stack-card { padding: 15px; }
+    .k-main-cta { width: 100%; justify-content: center; }
+}

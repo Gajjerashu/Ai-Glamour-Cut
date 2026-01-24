@@ -1,0 +1,93 @@
+/* SalonEssential.css */
+.se-page { 
+    background: var(--bg-color); 
+    color: var(--text-main); 
+    min-height: 100vh; 
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.se-top-bar { 
+    background: #ff0000; 
+    color: #fff; 
+    text-align: center; 
+    padding: 10px; 
+    font-weight: bold; 
+    letter-spacing: 2px; 
+    font-size: clamp(0.7rem, 2vw, 1rem); /* નાના મોબાઈલમાં ટેક્સ્ટ એડજસ્ટ થશે */
+    text-transform: uppercase;
+}
+
+.se-header { 
+    text-align: center; 
+    padding: clamp(40px, 8vw, 80px) 20px; 
+}
+
+.se-header h1 { 
+    font-size: clamp(2.2rem, 8vw, 4rem); /* રિસ્પોન્સિવ મોટું હેડિંગ */
+    line-height: 1.1;
+    font-weight: 900;
+}
+
+.red { color: #ff0000; }
+
+.se-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.se-grid { 
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: clamp(15px, 4vw, 30px); 
+    margin-bottom: 50px; 
+}
+
+.se-box { 
+    padding: clamp(25px, 5vw, 40px); 
+    background: var(--card-bg); 
+    border-radius: 10px; 
+    border-bottom: 4px solid #ff0000; 
+    height: 100%; /* બધા બોક્સ સરખી હાઈટના રહેશે */
+    transition: transform 0.3s ease;
+}
+
+.se-box:hover {
+    transform: translateY(-5px);
+}
+
+.se-box h3 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 15px;
+}
+
+.se-box p {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.se-footer-cta { 
+    text-align: center; 
+    padding: 0 20px 60px; 
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 850px) {
+    .se-grid { 
+        grid-template-columns: 1fr; /* ટેબ્લેટ અને મોબાઈલમાં સિંગલ કોલમ */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .se-header {
+        padding: 40px 15px;
+    }
+    
+    .se-box {
+        padding: 20px;
+    }
+}

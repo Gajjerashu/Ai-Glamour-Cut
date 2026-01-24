@@ -1,0 +1,168 @@
+/* 1. Main Section Styling */
+.services-section {
+    background-color: var(--bg-color);
+    padding: clamp(40px, 8vw, 80px) 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.service-main-title {
+    font-size: clamp(2rem, 5vw, 2.8rem); /* રિસ્પોન્સિવ ટાઈટલ */
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* 2. Service Card Styling */
+.service-card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    position: relative;
+    width: 100%; /* કાર્ડ કન્ટેનરની બહાર ન જાય તે માટે */
+}
+
+.service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.15);
+    border-color: var(--outline-color);
+}
+
+/* 3. Image Container */
+.service-img-container {
+    width: 100%;
+    height: clamp(180px, 25vh, 250px); /* સ્ક્રીન મુજબ હાઈટ એડજસ્ટ થશે */
+    position: relative;
+    overflow: hidden;
+}
+
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-img {
+    transform: scale(1.1);
+}
+
+/* 4. Category Badge */
+.category-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff0000;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+/* 5. Card Content - Overlap Fix */
+.service-content {
+    padding: clamp(15px, 3vw, 25px);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card-title {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.service-card-desc {
+    color: var(--text-muted);
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    /* લખાણ બહુ લાંબુ હોય તો ઓવરલેપ ન થાય તે માટે */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 6. Footer (Price & Button) - Non-Overlaping Fix */
+.service-card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    flex-wrap: wrap; /* પ્રાઈઝ અને બટન માટે જગ્યા ન હોય તો ઓટોમેટિક લાઈન બદલશે */
+    gap: 10px;
+}
+
+.service-card-price {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    font-weight: 800;
+    color: #ff0000;
+}
+
+.service-btn {
+    background: transparent;
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    white-space: nowrap; /* બટનનું લખાણ તૂટશે નહીં */
+}
+
+.service-btn:hover {
+    background: #ff0000;
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+/* 7. Card Bottom Accents */
+.card-underline {
+    height: 4px;
+    width: 0;
+    background: #ff0000;
+    transition: width 0.4s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.service-card:hover .card-underline {
+    width: 100%;
+}
+
+/* 8. Extra Mobile Adjustments */
+@media (max-width: 576px) {
+    .service-card-footer {
+        flex-direction: row; /* બને ત્યાં સુધી બાજુ-બાજુમાં જ રાખશે */
+        justify-content: space-between;
+    }
+    
+    .service-btn {
+        padding: 6px 15px;
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,75 @@
+.admin-services-wrapper {
+    padding: 100px 0;
+    min-height: 100vh;
+    background-color: var(--bg-color); /* App.css na background ne follow karse */
+}
+
+.admin-card {
+    background-color: var(--card-bg); /* Dark mode ma light black, Light ma grey-white */
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.admin-card:hover {
+    border-color: var(--outline-color);
+}
+
+.main-admin-title {
+    color: var(--text-main);
+    font-weight: 800;
+}
+
+.form-label {
+    color: var(--text-main);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.admin-input {
+    background-color: rgba(128, 128, 128, 0.1) !important;
+    border: 1px solid rgba(128, 128, 128, 0.2) !important;
+    color: var(--text-main) !important;
+    padding: 12px 15px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.admin-input:focus {
+    background-color: rgba(128, 128, 128, 0.15) !important;
+    border-color: var(--outline-color) !important;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.3) !important;
+    outline: none;
+}
+
+.admin-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #ff0000, #b30000);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+    filter: brightness(1.1);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}

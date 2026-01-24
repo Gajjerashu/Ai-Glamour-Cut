@@ -1,0 +1,161 @@
+/* Glamour Awards Section v3 */
+.glamour-awards-v3 {
+    padding: clamp(60px, 10vw, 100px) 0;
+    background-color: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.awards-v3-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.awards-v3-title {
+    font-size: clamp(2rem, 6vw, 3.5rem); /* રિસ્પોન્સિવ ટાઇટલ */
+    font-weight: 900;
+    text-align: center;
+    color: #ff0000;
+    letter-spacing: clamp(3px, 1vw, 8px);
+    margin-bottom: clamp(30px, 5vw, 60px);
+    text-transform: uppercase;
+    animation: fadeInDown 1s ease-out;
+}
+
+.awards-v3-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: auto; /* Fixed height હટાવી દીધી */
+    gap: 30px;
+}
+
+/* Central Round Image Styling */
+.awards-v3-center-image {
+    z-index: 5;
+    flex-shrink: 0;
+    animation: zoomIn 1.2s ease-out;
+    order: 2; /* Desktop પર વચ્ચે રહેશે */
+}
+
+.v3-round-wrapper {
+    width: clamp(280px, 35vw, 420px); /* સ્ક્રીન મુજબ ગોળ ઈમેજ નાની થશે */
+    height: clamp(280px, 35vw, 420px);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ff0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.v3-transparent-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Left & Right Text Columns */
+.awards-bg-text {
+    width: 30%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(30px, 5vw, 60px);
+}
+
+.awards-bg-text:first-child { order: 1; }
+.awards-bg-text:last-child { order: 3; }
+
+/* General Content Styling */
+.v3-award-item {
+    padding-bottom: 10px;
+}
+
+.v3-brand {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 900;
+    color: #ff0000;
+    text-transform: uppercase;
+}
+
+.v3-year {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: block;
+    font-weight: 600;
+}
+
+.v3-list {
+    list-style: none;
+    padding: 0;
+}
+
+.v3-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 0, 0, 0.1);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* --- Responsive Fixes --- */
+@media (max-width: 992px) {
+    .awards-v3-layout {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .awards-bg-text {
+        width: 100%;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .awards-v3-center-image {
+        order: 1; /* મોબાઈલમાં ઈમેજ સૌથી ઉપર આવશે */
+    }
+
+    .awards-bg-text:first-child { order: 2; }
+    .awards-bg-text:last-child { order: 3; }
+
+    .v3-list li {
+        border-bottom: 1px solid rgba(255, 0, 0, 0.05);
+        display: inline-block; /* મોબાઈલમાં લિસ્ટને લાઈનમાં ગોઠવવા માટે */
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .v3-round-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .v3-brand { font-size: 1.1rem; }
+}

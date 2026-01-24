@@ -1,0 +1,199 @@
+/* --- FOOTER MAIN STYLES --- */
+.footer {
+    padding: clamp(50px, 8vw, 70px) 0 20px;
+    background-color: var(--bg-color); 
+    border-top: 2px solid #ff0000;
+    transition: all 0.3s ease;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Dark Mode Background */
+[data-theme='dark'] .footer {
+    background-color: #0a0a0a; 
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* Responsive Grid Logic */
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: clamp(30px, 4vw, 40px);
+    padding: 0 5%;
+}
+
+/* 1. Brand Styling */
+.footer-logo-text {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.footer-logo-text span {
+    color: #ff0000;
+}
+
+.footer-tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 300px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Overlapping રોકવા માટે */
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    background: #ff0000;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 1rem;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    background: #000;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+/* 2 & 3. Link Sections */
+.footer-links h3, .footer-contact h3 {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: clamp(15px, 3vw, 25px);
+    font-weight: 800;
+}
+
+.footer-links h3 span, .footer-contact h3 span {
+    color: #ff0000;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    display: inline-block; /* હોવર ઇફેક્ટ માટે */
+}
+
+.footer-links ul li a:hover {
+    color: #ff0000;
+    transform: translateX(8px);
+}
+
+/* 4. Contact Section */
+.contact-info p, .opening-hours p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start; /* લાંબા એડ્રેસ માટે align-start રાખ્યું છે */
+    gap: 12px;
+    line-height: 1.5;
+}
+
+.contact-info i {
+    color: #ff0000;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.opening-hours {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(128, 128, 128, 0.3);
+}
+
+/* Bottom Bar Styling */
+.footer-bottom {
+    margin-top: clamp(40px, 6vw, 60px);
+    padding: 20px 5% 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.footer-bottom p span {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: clamp(15px, 3vw, 25px);
+    flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.footer-bottom-links a:hover {
+    color: #ff0000;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer { text-align: center; }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    
+    .footer-tagline { margin-left: auto; margin-right: auto; }
+
+    .social-links { justify-content: center; }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-bottom-links { justify-content: center; }
+
+    .contact-info p {
+        justify-content: center;
+    }
+}

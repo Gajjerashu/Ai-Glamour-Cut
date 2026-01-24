@@ -1,0 +1,221 @@
+/* Layout & Container */
+.course-detail-wrapper {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    transition: 0.3s ease;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section with Premium Backdrop */
+.detail-hero-section {
+    position: relative;
+    min-height: clamp(500px, 70vh, 700px); /* ફ્લેક્સિબલ હાઈટ */
+    display: flex;
+    align-items: center;
+    background: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
+    padding: 60px 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.5));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    width: 100%;
+}
+
+.course-category {
+    display: inline-block;
+    color: #ff0000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.course-main-title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.course-main-title span {
+    color: #ff0000;
+    -webkit-text-stroke: 1px #ff0000;
+    background: transparent;
+}
+
+.hero-subtitle {
+    max-width: 600px;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    opacity: 0.9;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.hero-stats {
+    display: flex;
+    gap: clamp(20px, 5vw, 40px);
+    flex-wrap: wrap; /* મોબાઈલમાં સ્ટેટ્સ નીચે આવશે */
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-item strong {
+    font-size: 1.5rem;
+    color: #ff0000;
+}
+
+.stat-item span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Main Content Area */
+.course-main-info {
+    padding: clamp(40px, 8vw, 80px) 0;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    gap: clamp(30px, 5vw, 60px);
+}
+
+.content-block {
+    margin-bottom: 50px;
+}
+
+.content-block h3 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.content-block h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 60px; height: 3px;
+    background: #ff0000;
+}
+
+.content-block p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.mastery-list {
+    list-style: none;
+    padding: 0;
+}
+
+.mastery-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    display: flex;
+    align-items: flex-start; /* લાંબા લિસ્ટ આઈટમ માટે બેસ્ટ */
+    font-weight: 500;
+}
+
+.mastery-list li span {
+    color: #ff0000;
+    margin-right: 15px;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+/* Booking Sidebar Card */
+.booking-card {
+    position: sticky;
+    top: 100px;
+    background: var(--card-bg);
+    padding: clamp(25px, 5vw, 40px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    height: fit-content;
+    z-index: 10;
+}
+
+.price-tag {
+    color: #ff0000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.benefit-pill {
+    display: inline-block;
+    background: rgba(255, 0, 0, 0.08);
+    color: #ff0000;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Strategy */
+@media (max-width: 992px) {
+    .grid-layout { 
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+    
+    .booking-card {
+        position: relative; /* મોબાઈલમાં સ્ટિકી કાઢી નાખ્યું */
+        top: 0;
+        width: 100%;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .detail-hero-section {
+        min-height: 400px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .course-main-title {
+        font-size: 2rem;
+    }
+}

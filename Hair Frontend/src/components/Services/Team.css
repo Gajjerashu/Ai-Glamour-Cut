@@ -1,0 +1,222 @@
+/* --- Team Section --- */
+.team-section {
+    padding: clamp(40px, 8vw, 80px) 0;
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+    width: 100%;
+    overflow: hidden;
+}
+
+.team-main-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 5vw, 3rem); /* રિસ્પોન્સિવ ટાઈટલ */
+    font-weight: 900;
+    color: var(--text-main);
+    margin-bottom: clamp(30px, 6vw, 60px);
+    text-transform: uppercase;
+    text-decoration: underline #ff0000;
+}
+
+.team-main-title span {
+    color: #ff0000;
+}
+
+.team-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(50px, 10vw, 100px);
+    padding: 0 20px;
+}
+
+/* Card Layout - Non Overlapping */
+.team-card {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 5vw, 60px);
+    width: 100%;
+}
+
+.team-card.right {
+    flex-direction: row-reverse;
+}
+
+/* Image Styling with Frame */
+.team-img-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 280px; /* મોબાઈલ માટે સેફ વિડ્થ */
+    max-width: 400px;
+}
+
+.team-img {
+    width: 100%;
+    height: clamp(300px, 40vh, 450px); /* સ્ક્રીન મુજબ હાઈટ એડજસ્ટ થશે */
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.team-border-frame {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ff0000;
+    z-index: 1;
+}
+
+.team-card.right .team-border-frame {
+    left: 15px;
+}
+
+/* Info Styling */
+.team-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.member-name {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    color: var(--text-main);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.member-name span {
+    display: block;
+    font-size: 0.95rem;
+    color: #ff0000;
+    margin-top: 5px;
+}
+
+.member-rating {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #ccac00;
+}
+
+.member-desc {
+    color: var(--text-muted);
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* Buttons */
+.profile-btn {
+    padding: 12px 30px;
+    background: #ff0000;
+    color: white;
+    border: 2px solid #ff0000;
+    font-weight: 800;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.profile-btn:hover {
+    background: transparent;
+    color: #ff0000;
+}
+
+/* Modal Overlay */
+.profile-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* હાઈ ઝેડ-ઈન્ડેક્સ */
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+/* Modal Content Box - Responsive Fix */
+.profile-modal-content {
+    background: var(--bg-color);
+    width: 100%;
+    max-width: 450px;
+    max-height: 90vh; /* મોબાઈલમાં સ્ક્રીનની બહાર ન જાય */
+    overflow-y: auto; /* જો લખાણ વધારે હોય તો સ્ક્રોલ થશે */
+    padding: clamp(20px, 5vw, 35px);
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: #ff0000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-header {
+    text-align: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff0000;
+    margin-bottom: 10px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 850px) {
+    .team-card, .team-card.right {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .team-img-wrapper {
+        margin: 0 auto;
+    }
+
+    .team-border-frame {
+        display: none; /* મોબાઈલમાં ક્લીન લૂક માટે */
+    }
+
+    .team-info {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-modal-content {
+        padding: 20px;
+    }
+    .profile-btn {
+        width: 100%;
+    }
+}

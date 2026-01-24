@@ -1,0 +1,215 @@
+/* Rew.css - Professional Responsive Adjustment */
+
+.rew-section {
+    padding: clamp(40px, 8vw, 60px) 0;
+    background-color: var(--bg-color); 
+    transition: all 0.3s ease;
+    overflow: hidden;
+    width: 100%;
+}
+
+.rew-header {
+    text-align: center;
+    margin-bottom: clamp(25px, 5vw, 35px);
+    padding: 0 20px;
+}
+
+.sub-title {
+    color: #ff0000;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.main-title {
+    font-size: clamp(1.6rem, 4vw, 2.5rem); 
+    font-weight: 900;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+/* --- Review Cards (Responsive Grid/Slider) --- */
+.rew-slide {
+    width: clamp(280px, 80vw, 340px) !important; /* મોબાઈલમાં આપોઆપ નાનું થશે */
+    display: flex;
+    justify-content: center;
+}
+
+.rew-card {
+    background: var(--card-bg); 
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 0, 0, 0.15);
+    border-radius: 30px; 
+    padding: clamp(25px, 5vw, 35px) 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: 0.4s ease;
+    min-height: 380px;
+    width: 100%;
+}
+
+/* Active Highlight */
+.swiper-slide-active .rew-card {
+    border: 2px solid #ff0000;
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+}
+
+.user-img-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+.user-real-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff0000;
+}
+
+.stars { 
+    color: #ffcc00; 
+    font-size: 1.1rem; 
+    margin: 10px 0; 
+}
+
+.review-text { 
+    color: var(--text-muted); 
+    font-size: 0.9rem;
+    line-height: 1.6; 
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* --- MODAL & FORM UI FIX --- */
+.feed-modal-overlay {
+    position: fixed;
+    inset: 0; /* top, left, right, bottom cover */
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.feed-modal-content {
+    position: relative;
+    background: var(--bg-color);
+    padding: 30px 20px 20px 20px !important;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 400px;
+    max-height: 90vh; /* મોબાઈલ પર ક્રીનથી બહાર ન જાય */
+    overflow-y: auto; /* જો ફોર્મ લાંબુ હોય તો અંદર સ્ક્રોલ થશે */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    scrollbar-width: none; /* Firefox */
+}
+
+.feed-modal-content::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Close Button (X) Fix */
+.feed-close-x {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff0000;
+    color: white !important;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 2px solid white;
+    z-index: 10002;
+    transition: 0.3s ease;
+}
+
+.feed-close-x:hover {
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* Form Styling Compact */
+.feed-modal-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+    text-align: center;
+}
+
+.feed-modal-content p {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.feed-modal-content input, 
+.feed-modal-content select,
+.feed-modal-content textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.feed-modal-content textarea {
+    min-height: 100px;
+    resize: none;
+}
+
+.feed-modal-content .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #ff0000;
+    color: white;
+    font-weight: 800;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.feed-modal-content .submit-btn:hover {
+    background: #000;
+    transform: translateY(-2px);
+}
+
+.leave-rev-btn{
+    border-radius: 15px;
+    background-color: aliceblue;
+    color: #ff0000;
+    border-color: #ff0000;
+    padding: 10px;
+}
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .rew-slide { width: 280px !important; }
+    .rew-card { min-height: 350px; }
+    .feed-modal-content { padding: 25px 15px 15px 15px !important; }
+}

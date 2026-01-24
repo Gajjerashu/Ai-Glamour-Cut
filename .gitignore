@@ -1,0 +1,8 @@
+node_modules/
+Hair Backend/node_modules/
+Hair Frontend/node_modules/
+.env
+.DS_Store
+dist/
+build/
+.vscode/

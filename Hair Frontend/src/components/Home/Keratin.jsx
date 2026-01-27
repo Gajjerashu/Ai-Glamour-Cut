@@ -1,47 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Sparkles, Clock, ShieldCheck } from 'lucide-react';
 import './Keratin.css';
 
-import video1 from '../../assets/videos/keratin-video1.mp4';
-import video2 from '../../assets/videos/keratin-video2.mp4';
-import video3 from '../../assets/videos/keratin-video3.mp4';
-
 const Keratin = () => {
-    const videoList = [video1, video2, video3];
-    const [currentIdx, setCurrentIdx] = useState(0);
-    const [nextIdx, setNextIdx] = useState(1);
-    const [fade, setFade] = useState(false);
-
-    const handleVideoEnd = () => {
-        setFade(true); // ફેડ આઉટ શરૂ કરો
-
-        setTimeout(() => {
-            const newCurrent = nextIdx;
-            const newNext = (nextIdx + 1) % videoList.length;
-
-            setCurrentIdx(newCurrent);
-            setNextIdx(newNext);
-            setFade(false); // નવા વીડિયો માટે ફેડ ઈન
-        }, 800); // આ ટાઈમ CSS ટ્રાન્ઝિશન સાથે મેચ થવો જોઈએ
-    };
+    // નવી Cloudinary ઓનલાઈન વિડિયો URL (keratin-video1)
+    const videoUrl = "https://res.cloudinary.com/dwkkep7sg/video/upload/v1769484533/keratin-video1_k2ecul.mp4";
 
     return (
         <section className="keratin-wrapper">
             <div className="container-fluid d-flex justify-content-end px-5">
                 <div className="keratin-main-card">
 
-                    {/* LEFT SIDE: Crossfade Video Section */}
+                    {/* LEFT SIDE: Online Video Section */}
                     <div className="keratin-left-media">
-                        {/* કરન્ટ વીડિયો લેયર */}
                         <video
-                            key={videoList[currentIdx]}
-                            className={`keratin-video ${fade ? 'fade-out' : 'fade-in'}`}
+                            className="keratin-video"
                             autoPlay
                             muted
+                            loop
                             playsInline
-                            onEnded={handleVideoEnd}
                         >
-                            <source src={videoList[currentIdx]} type="video/mp4" />
+                            {/* નવી લિંક અહીં કનેક્ટ કરી છે */}
+                            <source src={videoUrl} type="video/mp4" />
+                            Your browser does not support the video tag.
                         </video>
 
                         <div className="video-overlay-badge-left">

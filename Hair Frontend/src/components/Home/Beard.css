@@ -1,19 +1,19 @@
 /* Beard Section Wrapper */
 .beard-wrapper {
-    min-height: 100vh; /* height ને બદલે min-height જેથી મોબાઈલમાં કન્ટેન્ટ ન કપાય */
+    min-height: 100vh;
     background-color: var(--bg-color);
     padding: clamp(20px, 5vw, 40px) 0;
     display: flex;
     align-items: center;
-    justify-content: center; /* મોબાઈલ માટે સેન્ટર */
+    justify-content: center;
 }
 
-/* Card Sizing & Alignment */
+/* Card Sizing - Fixed Height for Desktop */
 .beard-main-card {
     display: flex;
-    width: 95%; /* મોબાઈલ માટે સુરક્ષિત વિડ્થ */
+    width: 95%;
     max-width: 870px;
-    min-height: 450px; /* height ને બદલે min-height જેથી લખાણ ઓવરલેપ ન થાય */
+    height: 480px; /* ડેસ્કટોપ પર ફિક્સ હાઈટ સેટ કરી */
     background: var(--card-bg);
     border-radius: 30px;
     overflow: hidden;
@@ -23,7 +23,6 @@
     margin: 0 auto;
 }
 
-/* ડેસ્કટોપ પર ડાબી બાજુ રાખવા માટે */
 @media (min-width: 992px) {
     .beard-wrapper { justify-content: flex-start; }
     .beard-main-card { margin-left: 40px; }
@@ -34,7 +33,6 @@
     border-color: rgba(255, 0, 0, 0.4);
 }
 
-/* LEFT SIDE: Content */
 .beard-left-content {
     flex: 1.1;
     padding: clamp(20px, 4vw, 35px);
@@ -44,7 +42,7 @@
 }
 
 .beard-heading {
-    font-size: clamp(1.4rem, 3vw, 1.8rem); /* રિસ્પોન્સિવ ફોન્ટ સાઈઝ */
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     font-weight: 900;
     margin: 15px 0;
     color: var(--text-main);
@@ -58,12 +56,7 @@
     font-size: 0.85rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    padding-right: 10px;
 }
-
-/* Scrollbar styling */
-.beard-scroll-text::-webkit-scrollbar { width: 3px; }
-.beard-scroll-text::-webkit-scrollbar-thumb { background: #ff0000; border-radius: 10px; }
 
 .features-grid-beard {
     display: grid;
@@ -78,27 +71,22 @@
     gap: 8px;
     font-weight: 700;
     font-size: 0.75rem;
-    color: var(--text-main);
 }
 
-/* RIGHT SIDE: Media (Video) */
+/* RIGHT SIDE: Video Height Fix */
 .beard-right-media {
     flex: 0.9;
     position: relative;
     background: #000;
-    min-height: 300px;
+    height: 100%; /* કાર્ડની પૂરી હાઈટ લેશે */
 }
 
 .beard-video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* વિડિયો બોક્સમાં ફિટ થશે */
     display: block;
-    transition: opacity 0.8s ease-in-out;
 }
-
-.fade-in { opacity: 1; }
-.fade-out { opacity: 0; }
 
 .video-overlay-badge-right {
     position: absolute;
@@ -115,16 +103,15 @@
 .video-overlay-badge-right strong { display: block; color: #ff0000; font-size: 1.1rem; font-weight: 900; }
 .video-overlay-badge-right span { color: var(--text-muted); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
 
-/* Pricing & Button Alignment */
 .price-booking-flex {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
     gap: 15px;
 }
 
-.brand-red, .text-red, .beard-price { color: #ff0000; font-weight: 900; font-size: 1.5rem; }
+.brand-red, .text-red, .beard-price { color: #ff0000; font-weight: 900; }
+.beard-price { font-size: 1.5rem; }
 
 .beard-action-btn {
     background: #ff0000;
@@ -133,40 +120,16 @@
     padding: 12px 28px;
     border-radius: 50px;
     font-weight: 800;
-    font-size: 0.85rem;
-    transition: 0.3s;
     cursor: pointer;
-}
-
-.beard-action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
 }
 
 /* Responsive Logic */
 @media (max-width: 768px) {
     .beard-main-card { 
-        flex-direction: column-reverse; /* મોબાઈલમાં વીડિયો ઉપર અને લખાણ નીચે આવશે */
+        flex-direction: column-reverse; 
         height: auto; 
-        max-width: 92%; 
-        margin: 0 auto;
     }
     .beard-right-media { 
-        height: 280px; 
-        flex: none;
-    }
-    .beard-left-content {
-        padding: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    .price-booking-flex {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .beard-action-btn {
-        width: 100%;
-        text-align: center;
+        height: 350px; /* મોબાઈલમાં વિડિયોની હાઈટ */
     }
 }

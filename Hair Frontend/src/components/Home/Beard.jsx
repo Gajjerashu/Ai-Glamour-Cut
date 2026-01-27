@@ -1,27 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Sparkles, Clock, ShieldCheck, CheckCircle } from 'lucide-react';
 import './Beard.css';
 
-// તમારા વિડિયો પાથ અહીં ઈમ્પોર્ટ કરો
-import beard1 from '../../assets/videos/Beard1.mp4';
-import beard2 from '../../assets/videos/Beard2.mp4';
-
 const Beard = () => {
-    const videoList = [beard1, beard2];
-    const [currentIdx, setCurrentIdx] = useState(0);
-    const [fade, setFade] = useState(false);
-
-    const handleVideoEnd = () => {
-        setFade(true); // ફેડ આઉટ શરૂ કરો
-        setTimeout(() => {
-            setCurrentIdx((prevIdx) => (prevIdx + 1) % videoList.length);
-            setFade(false); // ફેડ ઈન
-        }, 800);
-    };
+    // Cloudinary વિડિયો URL
+    const videoUrl = "https://res.cloudinary.com/dwkkep7sg/video/upload/v1769484508/Beard1_vkcee7.mp4";
 
     return (
         <section className="beard-wrapper">
-            {/* justify-content-start થી કાર્ડ ડાબી બાજુ રહેશે */}
             <div className="container-fluid d-flex justify-content-start px-5">
                 <div className="beard-main-card">
 
@@ -57,17 +43,18 @@ const Beard = () => {
                         </div>
                     </div>
 
-                    {/* RIGHT SIDE: Video Section */}
+                    {/* RIGHT SIDE: Online Video Section */}
                     <div className="beard-right-media">
                         <video
-                            key={videoList[currentIdx]}
-                            className={`beard-video ${fade ? 'fade-out' : 'fade-in'}`}
+                            className="beard-video"
                             autoPlay
                             muted
+                            loop
                             playsInline
-                            onEnded={handleVideoEnd}
                         >
-                            <source src={videoList[currentIdx]} type="video/mp4" />
+                            {/* અહીં Cloudinary URL સેટ કર્યું છે */}
+                            <source src={videoUrl} type="video/mp4" />
+                            Your browser does not support the video tag.
                         </video>
                         <div className="video-overlay-badge-right">
                             <strong>Sharp Look</strong>

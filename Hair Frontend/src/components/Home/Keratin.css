@@ -1,20 +1,20 @@
 /* Keratin.css */
 
 .keratin-wrapper {
-    min-height: 100vh; /* height ને બદલે min-height વાપર્યું જેથી કન્ટેન્ટ મુજબ એડજસ્ટ થાય */
+    min-height: 100vh;
     background-color: var(--bg-color);
     padding: clamp(20px, 5vw, 40px) 0;
     display: flex;
     align-items: center;
-    justify-content: center; /* મોબાઈલમાં સેન્ટર માટે */
+    justify-content: center;
 }
 
-/* Card Sizing - Responsive */
+/* Card Sizing - Height Set to Fixed for better look */
 .keratin-main-card {
     display: flex;
-    width: 95%; /* મોબાઈલ માટે સેફ વિડ્થ */
+    width: 95%;
     max-width: 870px; 
-    min-height: 450px; /* height ને બદલે min-height જેથી ઓવરલેપ ન થાય */
+    height: 480px; /* ચોક્કસ હાઈટ સેટ કરી */
     background: var(--card-bg);
     border-radius: 30px;
     overflow: hidden;
@@ -24,29 +24,22 @@
     margin: 0 auto;
 }
 
-/* ડેસ્કટોપ પર જમણી બાજુ સેટ કરવા માટે */
 @media (min-width: 992px) {
     .keratin-wrapper { justify-content: flex-end; }
     .keratin-main-card { margin-right: 40px; }
 }
 
-.keratin-main-card:hover {
-    box-shadow: 0 15px 50px rgba(255, 0, 0, 0.15);
-    border-color: rgba(255, 0, 0, 0.4);
-}
-
-/* LEFT SIDE: Video */
 .keratin-left-media {
     flex: 0.9;
     position: relative;
     background: #000;
-    min-height: 300px;
+    height: 100%; /* કાર્ડની પૂરી હાઈટ લેશે */
 }
 
 .keratin-video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* વીડિયો આખા બોક્સમાં ફિટ થશે */
     display: block;
 }
 
@@ -65,7 +58,6 @@
 .video-overlay-badge-left strong { display: block; color: #ff0000; font-size: 1.1rem; font-weight: 900; }
 .video-overlay-badge-left span { color: var(--text-muted); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
 
-/* RIGHT SIDE: Content */
 .keratin-right-content {
     flex: 1.1;
     padding: clamp(20px, 4vw, 35px);
@@ -100,15 +92,11 @@
 .keratin-scroll-text {
     max-height: 120px;
     overflow-y: auto;
-    padding-right: 10px;
     color: var(--text-muted);
     font-size: 0.85rem;
     line-height: 1.6;
     margin-bottom: 20px;
 }
-
-.keratin-scroll-text::-webkit-scrollbar { width: 3px; }
-.keratin-scroll-text::-webkit-scrollbar-thumb { background: #ff0000; border-radius: 10px; }
 
 .features-grid-keratin {
     display: grid;
@@ -123,7 +111,6 @@
     gap: 8px;
     font-weight: 700;
     font-size: 0.75rem;
-    color: var(--text-main);
 }
 
 .price-booking-flex {
@@ -131,7 +118,6 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    flex-wrap: wrap; /* કિંમત અને બટન ઓવરલેપ ન થાય એ માટે */
     gap: 10px;
 }
 
@@ -148,43 +134,16 @@
     padding: 10px 25px;
     border-radius: 50px;
     font-weight: 800;
-    font-size: 0.85rem;
-    transition: 0.3s;
     cursor: pointer;
-}
-
-.keratin-action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .keratin-main-card { 
         flex-direction: column; 
-        height: auto; 
-        max-width: 92%; 
-        margin: 0 auto;
+        height: auto; /* મોબાઈલમાં કન્ટેન્ટ મુજબ હાઈટ વધશે */
     }
     .keratin-left-media { 
-        height: 280px; 
-        flex: none;
-    }
-    .keratin-right-content {
-        padding: 25px;
-    }
-    .keratin-heading {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .price-booking-flex {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .keratin-action-btn {
-        width: 100%;
-        text-align: center;
+        height: 350px; /* મોબાઈલમાં વીડિયોની હાઈટ ફિક્સ કરી */
     }
 }

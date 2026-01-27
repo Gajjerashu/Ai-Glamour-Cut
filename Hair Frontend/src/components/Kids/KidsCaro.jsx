@@ -5,7 +5,8 @@ const carouselData = [
     {
         id: 1,
         type: 'video',
-        url: "src/assets/videos/kids1.mp4", // Replacement video link
+        // અહીં તમારી નવી Cloudinary લિંક કનેક્ટ કરી દીધી છે
+        url: "https://res.cloudinary.com/dwkkep7sg/video/upload/v1769484511/kids1_pqlox5.mp4",
         title: "Experience The Magic",
         tag: "Live"
     },
@@ -45,7 +46,7 @@ const KidsCaro = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentIndex((prev) => (prev === carouselData.length - 1 ? 0 : prev + 1));
-        }, 8000); // 8 seconds for video slides
+        }, 8000); // 8 seconds for slides
         return () => clearInterval(timer);
     }, [currentIndex]);
 
@@ -55,7 +56,15 @@ const KidsCaro = () => {
                 <div key={slide.id} className={`p-slide ${index === currentIndex ? 'active' : ''}`}>
 
                     {slide.type === 'video' ? (
-                        <video autoPlay loop muted playsInline className="p-media">
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="p-media"
+                            // Key ઉમેરવાથી જ્યારે સ્લાઈડ બદલાશે ત્યારે વિડિયો પ્રોપર રીલોડ થશે
+                            key={slide.url}
+                        >
                             <source src={slide.url} type="video/mp4" />
                         </video>
                     ) : (

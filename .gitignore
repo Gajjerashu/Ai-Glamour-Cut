@@ -6,3 +6,7 @@ Hair Frontend/node_modules/
 dist/
 build/
 .vscode/
+node_modules/
+dist/
+*.mp4
+*.mov

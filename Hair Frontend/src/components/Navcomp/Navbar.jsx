@@ -5,7 +5,7 @@ import './Navbar.css';
 const Navbar = ({ role, setAccessRole }) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // મેનુ સ્ટેટ
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const [isDarkMode, setIsDarkMode] = useState(() => {
         const savedTheme = localStorage.getItem('theme');
@@ -29,16 +29,18 @@ const Navbar = ({ role, setAccessRole }) => {
 
     return (
         <nav className="navbar shadow-sm">
-            <div className="nav-logo">
+            {/* ક્લીન રાઉન્ડ લોગો અને ઇટાલિક લખાણ */}
+            <div className="nav-logo" onClick={() => navigate('/')}>
                 <img
                     src="/logo.png"
-                    alt="Glamour Cutz"
-                    style={{ height: '50px', cursor: 'pointer' }}
-                    onClick={() => navigate('/')}
+                    alt="Logo"
+                    className="round-logo"
                 />
+                <span className="logo-text-italic">
+                    Glamour <span className="text-danger">Cutz</span>
+                </span>
             </div>
 
-            {/* Hamburger Icon - મોબાઈલ માટે */}
             <div className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 <i className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
             </div>

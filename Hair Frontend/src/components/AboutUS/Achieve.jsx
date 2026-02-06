@@ -10,19 +10,37 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import './Achieve.css';
 
-
-import img1 from "../../Images/Success/Achive1.jpg";
-import img2 from "../../Images/Success/Achive2.jpg";
-import img3 from "../../Images/Success/Achive3.jpg";
-import img4 from "../../Images/Success/Achive4.jpg";
-import img5 from "../../Images/Success/Achive5.jpg";
-
 const achievements = [
-    { img: img1, title: "1000+ Bridal Makeovers", desc: "Celebrating a decade of crafting flawless beauty for our brides.", icon: <Users /> },
-    { img: img2, title: "Best Luxury Salon 2024", desc: "Recognized as the leading premium salon for excellence in styling.", icon: <Award /> },
-    { img: img3, title: "Master Artistry Achievement", desc: "Our stylists are certified by world-class international academies.", icon: <Star /> },
-    { img: img4, title: "Community Choice Award", desc: "Voted #1 for customer satisfaction and hygienic environment.", icon: <Quote /> },
-    { img: img5, title: "Global Beauty Trends", desc: "Bringing international hair & skin standards to your doorstep.", icon: <Users /> },
+    {
+        img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770211888/Achive1_zfbyjj.jpg",
+        title: "1000+ Bridal Makeovers",
+        desc: "Celebrating a decade of crafting flawless beauty for our brides.",
+        icon: <Users />
+    },
+    {
+        img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770211891/Achive2_cbpnzw.jpg",
+        title: "Best Luxury Salon 2024",
+        desc: "Recognized as the leading premium salon for excellence in styling.",
+        icon: <Award />
+    },
+    {
+        img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770211899/Achive3_ttirfk.jpg",
+        title: "Master Artistry Achievement",
+        desc: "Our stylists are certified by world-class international academies.",
+        icon: <Star />
+    },
+    {
+        img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770211895/Achive4_d72snd.jpg",
+        title: "Community Choice Award",
+        desc: "Voted #1 for customer satisfaction and hygienic environment.",
+        icon: <Quote />
+    },
+    {
+        img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770211890/Achive5_xsepxu.jpg",
+        title: "Global Beauty Trends",
+        desc: "Bringing international hair & skin standards to your doorstep.",
+        icon: <Users />
+    },
 ];
 
 const Achieve = () => {

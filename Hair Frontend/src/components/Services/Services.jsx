@@ -10,12 +10,19 @@ const Services = () => {
     const [showModal, setShowModal] = useState(false);
 
     const defaultServices = [
-        { title: "Bridal Makeup", price: "$150", description: "Complete bridal makeover with premium HD products.", image: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=500&auto=format&fit=crop", category: "Female" },
-        { title: "Keratin Treatment", price: "$80", description: "Smooth, frizz-free hair with long-lasting shine.", image: "https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=500&auto=format&fit=crop", category: "Female" },
-        { title: "Luxury Facial Spa", price: "$40", description: "Skin rejuvenation with organic gold-collagen masks.", image: "https://images.unsplash.com/photo-1570172619380-4106adbc8953?q=80&w=500&auto=format&fit=crop", category: "Female" },
-        { title: "Gel Nail Art", price: "$30", description: "Designer nail extensions with long-wear gel polish.", image: "https://images.unsplash.com/photo-1604654894610-df490c81726a?q=80&w=500&auto=format&fit=crop", category: "Female" },
-        { title: "Expert Fade Cut", price: "$25", description: "Precision taper fade customized to your face shape.", image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=500&auto=format&fit=crop", category: "Male" },
-        { title: "Beard Sculpture", price: "$15", description: "Sharp edging with hot towel and razor finish.", image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=500&auto=format&fit=crop", category: "Male" }
+        {
+            title: "Bridal Makeover",
+            price: "$150",
+            description: "Premium HD makeup with hairstyling for your special day.",
+            // મેં અહીં નવી વર્કિંગ લિંક સેટ કરી છે
+            image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop",
+            category: "Female"
+        },
+        { title: "Keratin Smoothing", price: "$80", description: "Professional keratin treatment for silky and frizz-free hair.", image: "https://images.unsplash.com/photo-1560869713-7d0a29430803?q=80&w=500&auto=format&fit=crop", category: "Female" },
+        { title: "Skin Brightening Spa", price: "$45", description: "Deep cleansing facial with organic fruit extracts and steam.", image: "https://images.unsplash.com/photo-1570172619380-4106adbc8953?q=80&w=500&auto=format&fit=crop", category: "Female" },
+        { title: "Gel Nail Artistry", price: "$30", description: "Trendy nail extensions with custom hand-painted designs.", image: "https://images.unsplash.com/photo-1604654894610-df490c81726a?q=80&w=500&auto=format&fit=crop", category: "Female" },
+        { title: "Classic Skin Fade", price: "$25", description: "Modern taper fade with razor sharp outlines and styling.", image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=500&auto=format&fit=crop", category: "Male" },
+        { title: "Beard Grooming", price: "$20", description: "Hot towel beard trim with premium oil massage finish.", image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=500&auto=format&fit=crop", category: "Male" }
     ];
 
     useEffect(() => {
@@ -69,13 +76,12 @@ const Services = () => {
                 </div>
             </div>
 
-            {/* Appointment Modal Connection */}
             {showModal && selectedService && (
                 <Appointment
                     serviceName={selectedService.title}
                     servicePrice={selectedService.price}
                     onClose={() => setShowModal(false)}
-                    isAboutUs={false} // Services page che etle dropdown nahi dekhay
+                    isAboutUs={false}
                 />
             )}
         </section>

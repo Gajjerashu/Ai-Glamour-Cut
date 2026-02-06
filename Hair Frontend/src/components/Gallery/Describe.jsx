@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // રુટિંગ માટે
+import { useNavigate } from 'react-router-dom';
 import './Describe.css';
 
 const Describe = () => {
     const navigate = useNavigate();
+
+    // Cloudinary Online Links for Slider
     const images = [
-        "src/Images/Saloon/salon1.jpg",
-        "src/Images/Saloon/salon2.jpg",
-        "src/Images/Saloon/salon3.jpg",
-        "src/Images/Saloon/salon4.jpg",
-        "src/Images/Saloon/salon5.jpg"
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770208653/salon1_ogwfuq.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770208656/salon2_wg6ezi.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770208653/salon3_tivfd4.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770208654/onbhbb.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770208653/salon5_swss2b.jpg"
     ];
+
+    // Cloudinary Online Links for Brand Logos
+    const lorealLogo = "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770208652/loreal_dm854z.jpg";
+    const arthLogo = "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770208654/arth_d40v8k.jpg";
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,8 +37,8 @@ const Describe = () => {
                 </h1>
 
                 <div className="brand-logos">
-                    <img src="src/Images/Saloon/loreal.jpg" alt="Loreal" />
-                    <img src="src/Images/Saloon/arth.jpg" alt="Arth" />
+                    <img src={lorealLogo} alt="Loreal" />
+                    <img src={arthLogo} alt="Arth" />
                 </div>
 
                 <p className="describe-text">
@@ -46,7 +52,6 @@ const Describe = () => {
                     global trends to bring you a world-class experience right at your doorstep.
                 </p>
 
-                {/* ક્લિક કરવા પર /explore પેજ પર જશે */}
                 <button className="explore-btn" onClick={() => navigate('/explore')}>
                     Explore Gallery <i className="fas fa-arrow-right"></i>
                 </button>

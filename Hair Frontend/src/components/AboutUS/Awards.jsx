@@ -1,8 +1,10 @@
 import React from 'react';
 import './Awards.css';
-import AwardModel from '../../Images/BridalHD/Bridal9.jpg';
 
 const Awards = () => {
+    // Cloudinary Online Image Link
+    const awardModelImg = "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776695/Bridal9_eczxsa.jpg";
+
     return (
         <section className="glamour-awards-v3">
             <div className="awards-v3-container">
@@ -30,10 +32,10 @@ const Awards = () => {
                         </div>
                     </div>
 
-                    {/* CENTRAL ROUND IMAGE */}
+                    {/* CENTRAL ROUND IMAGE WITH ONLINE LINK */}
                     <div className="awards-v3-center-image">
                         <div className="v3-round-wrapper">
-                            <img src={AwardModel} alt="Award Winning Lady" className="v3-transparent-img" />
+                            <img src={awardModelImg} alt="Award Winning Lady" className="v3-transparent-img" />
                         </div>
                     </div>
 

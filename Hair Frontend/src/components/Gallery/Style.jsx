@@ -1,7 +1,9 @@
 import React from 'react';
 import './Style.css';
 import { Link } from 'react-router-dom';
-import modelImg from '../../Images/Success/View/img8.png';
+
+// Cloudinary Online Image Link
+const modelImg = "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770210522/img8_wlm78g.png";
 
 const coursesLeft = [
     {
@@ -72,7 +74,7 @@ export default function Style() {
                         ))}
                     </div>
 
-                    {/* Center Image */}
+                    {/* Center Image with Online URL */}
                     <div className="center-model">
                         <div className="model-bg-circle"></div>
                         <img src={modelImg} alt="hair style model" className="model-img" />
@@ -81,12 +83,14 @@ export default function Style() {
                     {/* Right Column */}
                     <div className="course-column right-align">
                         {coursesRight.map((course, index) => (
-                            <div className="course-card" key={index}>
-                                <div className="icon-wrapper">{course.icon}</div>
-                                <div className="text-content">
-                                    <h4>{course.title}</h4>
-                                    <p>{course.text}</p>
-                                    <Link to={course.path} className="view-link">View Details →</Link>
+                            <div className="course-column-item" key={index}>
+                                <div className="course-card">
+                                    <div className="icon-wrapper">{course.icon}</div>
+                                    <div className="text-content">
+                                        <h4>{course.title}</h4>
+                                        <p>{course.text}</p>
+                                        <Link to={course.path} className="view-link">View Details →</Link>
+                                    </div>
                                 </div>
                             </div>
                         ))}

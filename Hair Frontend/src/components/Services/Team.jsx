@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import './Team.css';
 
-import member1 from '../../Images/Explore/img18.jpg';
-import member2 from '../../Images/Explore/img39.jpg';
-import member3 from '../../Images/Explore/img36.jpg';
-import member4 from '../../Images/Explore/img19.jpg';
-
 const Team = () => {
     const [selectedMember, setSelectedMember] = useState(null);
 
@@ -14,7 +9,8 @@ const Team = () => {
             name: "Jennifer Lopez",
             role: "Owner (Master Stylist)",
             desc: "Jennifer is an experienced senior stylist with 22 years of experience. She specializes in balayage and blondes.",
-            img: member1,
+            // Image: img18
+            img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769501626/img18_p9aove.jpg",
             align: 'left',
             details: {
                 license: "LC-9920348-CA",
@@ -27,7 +23,8 @@ const Team = () => {
             name: "Mya Mejia",
             role: "Owner (Stylist)",
             desc: "A dedicated member since 2022, Mya loves creating stunning transformations. She is a supportive team member.",
-            img: member2,
+            // Image: img39
+            img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769501661/img39_tutuc3.jpg",
             align: 'right',
             details: {
                 license: "LC-8837421-CA",
@@ -40,7 +37,8 @@ const Team = () => {
             name: "Jackie Pham",
             role: "Our-Partner (Stylist)",
             desc: "Jackie brings a blend of technical expertise and natural artistry. She specializes in long haircuts.",
-            img: member3,
+            // Image: img36
+            img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769501655/img36_x7dcro.jpg",
             align: 'left',
             details: {
                 license: "LC-7746210-CA",
@@ -53,7 +51,8 @@ const Team = () => {
             name: "Mariah Rath",
             role: "Our-Partner (Stylist)",
             desc: "A proud graduate with a lifelong passion for hair and makeup. Mariah ensures each client feels beautiful.",
-            img: member4,
+            // Image: img19
+            img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769501640/img19_ebikmh.jpg",
             align: 'right',
             details: {
                 license: "LC-6655109-CA",
@@ -78,7 +77,6 @@ const Team = () => {
                             <h2 className="member-name">{member.name} <span>{member.role}</span></h2>
                             <div className="member-rating">⭐⭐⭐⭐⭐ (5.0)</div>
                             <p className="member-desc">{member.desc}</p>
-                            {/* Profile Button */}
                             <button className="profile-btn" onClick={() => setSelectedMember(member)}>
                                 View Profile
                             </button>
@@ -121,8 +119,6 @@ const Team = () => {
                                 <span>{selectedMember.details.specialty}</span>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             )}

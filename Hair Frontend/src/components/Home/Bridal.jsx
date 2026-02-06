@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { CheckCircle } from 'lucide-react';
 import './Bridal.css';
 
-// Importing images
-import b1 from '../../images/BridalHD/Bridal1.jpg';
-import b2 from '../../images/BridalHD/Bridal2.jpg';
-import b3 from '../../images/BridalHD/Bridal3.jpg';
-import b4 from '../../images/BridalHD/Bridal4.jpg';
-import b5 from '../../images/BridalHD/Bridal5.jpg';
-import b6 from '../../images/BridalHD/Bridal6.jpg';
-import b7 from '../../images/BridalHD/Bridal7.jpg';
-import b8 from '../../images/BridalHD/Bridal8.jpg';
-
 const Bridal = () => {
-    const images = [b1, b2, b3, b4, b5, b6, b7, b8];
+    // Online Cloudinary Links
+    const images = [
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776691/Bridal1_trzf25.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776697/Bridal2_ckdyfa.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776698/Bridal3_ys0yql.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776687/Bridal4_dkaest.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776688/Bridal5_emiamy.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776695/Bridal6_tyfnju.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776688/Bridal7_qtuxdw.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776693/Bridal8_wbq01r.jpg"
+    ];
+
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const Bridal = () => {
                             <img
                                 key={i}
                                 src={img}
-                                alt="Bridal"
+                                alt={`Bridal ${i + 1}`}
                                 className={`fade-img ${i === index ? 'active' : ''}`}
                             />
                         ))}

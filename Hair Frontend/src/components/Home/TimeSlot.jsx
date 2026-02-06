@@ -1,9 +1,10 @@
 import React from 'react';
 import './TimeSlot.css';
-// આ લાઇન બદલો:
-import businessImg from "../../Images/BridalHD/Bridal8.jpg";
 
 const TimeSlot = () => {
+    // Cloudinary Online Link
+    const businessImg = "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769776693/Bridal8_wbq01r.jpg";
+
     const hours = [
         { day: 'Sunday', time: '10:00 AM - 5:00 PM' },
         { day: 'Monday', time: '10:00 AM - 6:00 PM' },

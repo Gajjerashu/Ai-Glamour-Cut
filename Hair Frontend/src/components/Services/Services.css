@@ -39,21 +39,26 @@
 /* 3. Image Container */
 .service-img-container {
     width: 100%;
-    height: clamp(180px, 25vh, 250px); /* સ્ક્રીન મુજબ હાઈટ એડજસ્ટ થશે */
+    height: 250px; /* ફિક્સ હાઇટ આપો અથવા જરૂર મુજબ વધારો */
     position: relative;
     overflow: hidden;
+    background-color: #f8f8f8; /* ઇમેજ લોડ ન થાય તો ખાલી ન લાગે */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
 }
 
 .service-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; 
     object-position: center;
     transition: transform 0.6s ease;
 }
 
 .service-card:hover .service-img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 /* 4. Category Badge */

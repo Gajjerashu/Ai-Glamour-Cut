@@ -5,10 +5,19 @@ const View = () => {
     // Cloudinary વિડિયો URL
     const brandingVideoUrl = "https://res.cloudinary.com/dwkkep7sg/video/upload/v1769490012/keratin-video2_gy9avi.mp4";
 
-    // Exact 5 images as per your layout
-    const displayImages = Array.from({ length: 5 }, (_, i) => ({
+    // Cloudinary ઓનલાઈન ઈમેજ લિંક્સ
+    const onlineImages = [
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770210519/img1_boccdv.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770210519/img2_slttka.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770210519/img3_qv1mcv.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770210519/img4_cfacjj.jpg",
+        "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770210519/img5_jp2hr6.jpg"
+    ];
+
+    // Mapping images for the layout
+    const displayImages = onlineImages.map((url, i) => ({
         id: i + 1,
-        img: `/src/Images/Success/View/img${i + 1}.jpg`,
+        img: url,
         alt: `Vogue Style ${i + 1}`
     }));
 
@@ -22,13 +31,12 @@ const View = () => {
 
                 {/* Image 1 (Top Left) */}
                 <div className="vogue-item area-img1">
-                    <img src={displayImages[0].img} alt="Style 1" />
+                    <img src={displayImages[0].img} alt={displayImages[0].alt} />
                 </div>
 
                 {/* TOP CENTER BRANDING CARD WITH ONLINE VIDEO */}
                 <div className="vogue-branding-card area-brand">
                     <video className="branding-video-bg" autoPlay loop muted playsInline>
-                        {/* અહીં ઓનલાઈન લિંક સેટ કરી છે */}
                         <source src={brandingVideoUrl} type="video/mp4" />
                     </video>
                     <div className="branding-content">
@@ -41,18 +49,18 @@ const View = () => {
 
                 {/* Image 2 (Top Right) */}
                 <div className="vogue-item area-img2">
-                    <img src={displayImages[1].img} alt="Style 2" />
+                    <img src={displayImages[1].img} alt={displayImages[1].alt} />
                 </div>
 
                 {/* Bottom 3 Images */}
                 <div className="vogue-item area-img3">
-                    <img src={displayImages[2].img} alt="Style 3" />
+                    <img src={displayImages[2].img} alt={displayImages[2].alt} />
                 </div>
                 <div className="vogue-item area-img4">
-                    <img src={displayImages[3].img} alt="Style 4" />
+                    <img src={displayImages[3].img} alt={displayImages[3].alt} />
                 </div>
                 <div className="vogue-item area-img5">
-                    <img src={displayImages[4].img} alt="Style 5" />
+                    <img src={displayImages[4].img} alt={displayImages[4].alt} />
                 </div>
 
             </div>

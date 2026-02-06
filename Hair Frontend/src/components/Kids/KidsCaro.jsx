@@ -5,7 +5,6 @@ const carouselData = [
     {
         id: 1,
         type: 'video',
-        // અહીં તમારી નવી Cloudinary લિંક કનેક્ટ કરી દીધી છે
         url: "https://res.cloudinary.com/dwkkep7sg/video/upload/v1769484511/kids1_pqlox5.mp4",
         title: "Experience The Magic",
         tag: "Live"
@@ -13,14 +12,14 @@ const carouselData = [
     {
         id: 2,
         type: 'image',
-        url: "src/Images/Kids/img1.jpg",
+        url: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770219007/img1_knfdqh.jpg",
         title: "Modern Junior Cuts",
         tag: "Trendy"
     },
     {
         id: 3,
         type: 'image',
-        url: "src/Images/Kids/img2.jpg",
+        url: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770219007/img2_vimvvs.jpg",
         title: "Gaming While Styling",
         tag: "Fun"
     },
@@ -62,7 +61,6 @@ const KidsCaro = () => {
                             muted
                             playsInline
                             className="p-media"
-                            // Key ઉમેરવાથી જ્યારે સ્લાઈડ બદલાશે ત્યારે વિડિયો પ્રોપર રીલોડ થશે
                             key={slide.url}
                         >
                             <source src={slide.url} type="video/mp4" />

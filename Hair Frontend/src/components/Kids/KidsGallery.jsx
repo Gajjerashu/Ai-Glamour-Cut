@@ -4,19 +4,19 @@ import './KidsGallery.css';
 const galleryData = [
     {
         id: 1,
-        img: "src/Images/Kids/Kids9.png",
+        img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770219007/img2_vimvvs.jpg",
         video: "https://res.cloudinary.com/dwkkep7sg/video/upload/v1769488781/kids3_lvdgrr.mp4",
         isHighlight: true
     },
     {
         id: 2,
-        img: "src/Images/Kids/kids10.png",
+        img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1770219007/img1_knfdqh.jpg",
         video: "https://res.cloudinary.com/dwkkep7sg/video/upload/v1769484519/Kids2_qamjl2.mp4",
         isHighlight: true
     },
     {
         id: 3,
-        img: "src/Images/Kids/kids11.png",
+        img: "https://res.cloudinary.com/dwkkep7sg/image/upload/v1769483781/cld-sample.jpg",
         video: "https://res.cloudinary.com/dwkkep7sg/video/upload/v1769484512/kids4_vpr9dv.mp4",
         isHighlight: true
     }

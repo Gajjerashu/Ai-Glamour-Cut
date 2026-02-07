@@ -28,7 +28,7 @@ const Services = () => {
     useEffect(() => {
         const fetchServices = async () => {
             try {
-                const res = await axios.get('${import.meta.env.VITE_API_URL}/api/services');
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/services`);
                 if (res.data && res.data.length > 0) {
                     setServices(res.data);
                 } else {

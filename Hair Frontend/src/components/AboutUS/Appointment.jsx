@@ -39,7 +39,7 @@ const Appointment = ({ serviceName = "", servicePrice = "", onClose, isAboutUs =
         e.preventDefault();
         setLoading(true);
         try {
-            const response = await axios.post(${import.meta.env.VITE_API_URL}/api/bookings/add, bookingData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/bookings/add`, bookingData);
             if (response.data.success) {
                 setIsSuccess(true);
             }

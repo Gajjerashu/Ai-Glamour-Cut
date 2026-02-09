@@ -14,7 +14,6 @@ const Services = () => {
             title: "Bridal Makeover",
             price: "$150",
             description: "Premium HD makeup with hairstyling for your special day.",
-            // મેં અહીં નવી વર્કિંગ લિંક સેટ કરી છે
             image: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop",
             category: "Female"
         },

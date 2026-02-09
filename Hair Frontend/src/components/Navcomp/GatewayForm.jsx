@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './GatewayForm.css'; // CSS ફાઈલ ઇમ્પોર્ટ કરવાનું ભૂલતા નહીં
+import './GatewayForm.css';ીં
 
 const GatewayForm = ({ setAccessRole }) => {
     const [formData, setFormData] = useState({ name: '', phone: '' });

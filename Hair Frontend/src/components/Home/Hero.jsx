@@ -19,8 +19,7 @@ const Hero = () => {
     useEffect(() => {
         const getHeroContent = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/hero');
-                setHeroData(response.data);
+                const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/feedback/add`, feedbackData);
             } catch (error) {
                 console.error("Backend fetch error, showing default content.");
             }

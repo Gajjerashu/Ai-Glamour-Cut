@@ -12,7 +12,7 @@ const Stats = () => {
 
     useEffect(() => {
         // Backend fetch
-        axios.get('http://localhost:5000/api/stats')
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/feedback/add`, feedbackData);
             .then(res => {
                 const data = {
                     stylists: parseInt(res.data.stylists) || 15,

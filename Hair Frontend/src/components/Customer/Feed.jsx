@@ -14,7 +14,7 @@ const Feed = ({ isDarkMode }) => {
         e.preventDefault();
         setStatus({ ...status, loading: true });
         try {
-            const response = await axios.post('http://localhost:5000/api/feedback/add', feedbackData);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/feedback/add`, feedbackData);
             if (response.data.success) {
                 setStatus({ loading: false, success: true });
                 setFeedbackData({ customerName: '', rating: 5, message: '' });

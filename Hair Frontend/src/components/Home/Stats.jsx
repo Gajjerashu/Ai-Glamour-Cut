@@ -12,18 +12,18 @@ const Stats = () => {
 
     useEffect(() => {
         // Backend fetch
-        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/feedback/add`, feedbackData);
-            .then(res => {
-                const data = {
-                    stylists: parseInt(res.data.stylists) || 15,
-                    clients: parseInt(res.data.clients) || 10000,
-                    locations: parseInt(res.data.locations) || 5,
-                    accuracy: parseInt(res.data.accuracy) || 100
-                };
-                setStats(data);
-            })
-            .catch(() => console.log("Using default stats for animation"));
-    }, []);
+      axios.get(`${import.meta.env.VITE_API_URL}/api/stats`)
+        .then(res => {
+            const data = {
+                stylists: parseInt(res.data.stylists) || 15,
+                clients: parseInt(res.data.clients) || 10000,
+                locations: parseInt(res.data.locations) || 5,
+                accuracy: parseInt(res.data.accuracy) || 100
+            };
+            setStats(data);
+        })
+        .catch(() => console.log("Using default stats for animation"));
+}, []);
 
     useEffect(() => {
         // Infinite Loop Animation logic

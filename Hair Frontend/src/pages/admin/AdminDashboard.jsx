@@ -57,7 +57,7 @@ const AdminDashboard = () => {
     const deleteFeedback = async (id) => {
         if (window.confirm("Delete this feedback?")) {
             try {
-                await axios.delete(`http://localhost:5000/api/feedback/${id}`);
+                await axios.delete(`${import.meta.env.VITE_API_URL}/api/feedback/${id}`);
                 setFeedbacks(feedbacks.filter(f => f._id !== id));
             } catch (err) { alert("Error deleting feedback"); }
         }

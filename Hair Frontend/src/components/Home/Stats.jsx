@@ -7,31 +7,29 @@ const Stats = () => {
         stylists: 15, clients: 10000, locations: 5, accuracy: 100
     });
 
-    // Display mate numbers
+    // Display numbers state
     const [counts, setCounts] = useState({ stylists: 0, clients: 0, locations: 0, accuracy: 0 });
 
     useEffect(() => {
-        // Backend fetch
-      axios.get(`${import.meta.env.VITE_API_URL}/api/stats`)
-        .then(res => {
-            const data = {
-                stylists: parseInt(res.data.stylists) || 15,
-                clients: parseInt(res.data.clients) || 10000,
-                locations: parseInt(res.data.locations) || 5,
-                accuracy: parseInt(res.data.accuracy) || 100
-            };
-            setStats(data);
-        })
-        .catch(() => console.log("Using default stats for animation"));
-}, []);
+        // Backend fetch - સાચો Get કમાન્ડ
+        axios.get(`${import.meta.env.VITE_API_URL}/api/stats`)
+            .then(res => {
+                const data = {
+                    stylists: parseInt(res.data.stylists) || 15,
+                    clients: parseInt(res.data.clients) || 10000,
+                    locations: parseInt(res.data.locations) || 5,
+                    accuracy: parseInt(res.data.accuracy) || 100
+                };
+                setStats(data);
+            })
+            .catch(() => console.log("Using default stats for animation"));
+    }, []); // અંહી બ્રેકેટ બરાબર હોવો જોઈએ
 
     useEffect(() => {
-        // Infinite Loop Animation logic
-        const speed = 50; // Jetlo number ocho etli speed vadhare
-
+        // Animation logic
+        const speed = 50; 
         const timer = setInterval(() => {
             setCounts(prevCounts => ({
-                // % (Modulo) operator vaprava thi number target sudhi jai ne pacho 0 thai jase
                 stylists: (prevCounts.stylists + 1) % (stats.stylists + 1),
                 clients: (prevCounts.clients + 10) % (stats.clients + 10),
                 locations: (prevCounts.locations + 1) % (stats.locations + 1),
@@ -39,7 +37,7 @@ const Stats = () => {
             }));
         }, speed);
 
-        return () => clearInterval(timer); // Component unmount thay tyre stop thase
+        return () => clearInterval(timer);
     }, [stats]);
 
     const statsList = [

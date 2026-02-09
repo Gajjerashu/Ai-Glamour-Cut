@@ -18,7 +18,7 @@ const AdminDashboard = () => {
         const fetchData = async () => {
             try {
                 // Fetch Bookings
-                const resBooking = await axios.get('http://localhost:5000/api/bookings');
+                const resBooking = await axios.get(`${import.meta.env.VITE_API_URL}/api/bookings`);
                 setBookings(resBooking.data);
                 setFilteredData(resBooking.data);
 
@@ -30,7 +30,7 @@ const AdminDashboard = () => {
                 setTotalEarnings(total);
 
                 // Fetch Feedbacks
-                const resFeed = await axios.get('http://localhost:5000/api/feedback');
+                const resFeed = await axios.get(`${import.meta.env.VITE_API_URL}/api/feedback`);
                 setFeedbacks(resFeed.data);
             } catch (err) {
                 console.error("Fetch Error:", err);
